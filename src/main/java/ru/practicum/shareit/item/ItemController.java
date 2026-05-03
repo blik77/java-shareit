@@ -27,7 +27,7 @@ public class ItemController {
     public ItemDto update(
             @PathVariable Long itemId,
             @RequestHeader(X_SHARER_USER_ID) Long ownerId,
-            @RequestBody ItemDto itemDto
+            @Valid @RequestBody ItemDto itemDto
     ) {
         return itemService.update(itemId, ownerId, itemDto);
     }
