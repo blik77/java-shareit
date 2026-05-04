@@ -20,7 +20,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<ItemDto> findAllByOwner(Long ownerId) {
-        return itemRepository.findAllByOwner(ownerId).stream()
+        return itemRepository.findAll().stream()
+                .filter(item -> ownerId.equals(item.getOwner()))
                 .map(ItemMapper::toItemDto)
                 .collect(Collectors.toList());
     }
